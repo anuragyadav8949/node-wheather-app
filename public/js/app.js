@@ -8,7 +8,10 @@ fetch('http://puzzle.mead.io/puzzle').then((response)=>{
     })
 })
 
-fetch('http://localhost:3000/weahter?address=boston').then((response)=>{
+//When app will be on heroku it will try yo fetch local host URL which will not work hence,
+//We appended our /wheather endpoint only it will run main url by default
+// fetch('http://localhost:3000/weahter?address=boston').then((response)=>{
+    fetch('/weahter?address=boston').then((response)=>{
     response.json().then((data)=>{
         if(data.error){
         console.log(error)

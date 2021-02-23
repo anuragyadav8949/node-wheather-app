@@ -14,6 +14,12 @@ const forcast  = require('./utils/forcast')
 
 //This line start the express framework and store everything into app var
 const app = express()
+
+//Here we are getting the port number on which heroku will run our app, if tht not found
+//will run our app on 3000 by default
+const port = process.env.PORT || 3000 
+
+
 publicDirectoryPath = path.join(__dirname,'../public');
 //Use to customize the server, static() is use to server the static content
 //app.use(express.static(publicDirectoryPath))
@@ -130,6 +136,6 @@ app.get('*',(req,res)=>{
 })
 
 //This listen method start up the server on the port
-app.listen('3000',()=>{
-    console.log('Server is up on port:3000')
+app.listen(port,()=>{
+    console.log('Server is up on port:'+port)
 })
